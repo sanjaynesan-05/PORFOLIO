@@ -16,14 +16,14 @@ import img11 from "../assets/designs/11.png";
 import img12 from "../assets/designs/12.png";
 import img13 from "../assets/designs/13.png";
 import img14 from "../assets/designs/14.png";
-import img15 from "../assets/designs/15.png";
+
 
 const Designs = () => {
   // Original 15 images
   const baseImages = [
     img1, img2, img3, img4, img5,
     img6, img7, img8, img9, img10,
-    img11, img12, img13, img14, img15,
+    img11, img12, img13, img14,
   ];
 
   // Repeat and slice to fill exactly 28 slots
