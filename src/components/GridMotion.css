@@ -8,24 +8,11 @@
 .intro {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   background: black;
-}
-
-.intro::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 250px;
-  pointer-events: none;
-  z-index: 4;
 }
 
 .gridMotion-header {
@@ -51,9 +38,8 @@
   text-shadow: 0 1px 5px rgb(0, 0, 0);
 }
 
-/* === Shared Tile Design === */
+/* === Tile Design === */
 .tile-inner {
-  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -88,16 +74,15 @@
   text-align: center;
 }
 
-/* === Desktop Motion Grid === */
+/* === Grid Container (Desktop) === */
 .gridMotion-container {
-  gap: 1rem;
-  flex: none;
   position: relative;
   width: 150vw;
   height: 150vh;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 100%;
+  gap: 1rem;
   transform: rotate(-15deg);
   transform-origin: center center;
   z-index: 2;
@@ -105,29 +90,43 @@
 
 .row {
   display: grid;
-  gap: 1rem;
   grid-template-columns: repeat(7, 1fr);
-  will-change: transform, filter;
+  gap: 1rem;
+  will-change: transform;
 }
 
 .row__item {
   position: relative;
 }
 
-.fullview {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
+/* === Smooth Row Animation === */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(10%);
+  }
 }
 
-.fullview .tile-inner {
-  border-radius: 0px;
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
 }
 
-/* === ✅ Mobile Static Grid: Transposed + Rectangles === */
+.row.scroll-left {
+  animation: scroll-left 6s ease-in-out infinite alternate;
+}
+
+.row.scroll-right {
+  animation: scroll-right 6s ease-in-out infinite alternate;
+}
+
+/* === Mobile Layout === */
 @media (max-width: 768px) {
   .gridMotion-container {
     display: none;
@@ -135,22 +134,21 @@
 
   .mobile-static-grid {
     display: grid;
-    grid-auto-flow: column; /* Transpose the order */
-    grid-template-rows: repeat(3, 1fr); /* 3 rows instead of columns */
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 1fr);
     grid-auto-columns: 20vw;
     gap: 12px;
     padding: 7rem 1rem 1rem;
-    box-sizing: border-box;
     background: black;
     width: 100%;
     height: 100vh;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .mobile-tile {
-    width: 100%;
     aspect-ratio: 3 / 4;
     background-color: #111;
     border-radius: 12px;
@@ -164,13 +162,5 @@
 
   .gridMotion-subtitle {
     font-size: 1rem;
-  }
-
-  .tile-inner {
-    border-radius: 12px;
-  }
-
-  .tile-img {
-    border-radius: 12px;
   }
 }

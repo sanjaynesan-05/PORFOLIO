@@ -1,17 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+    <!-- ⚡ Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+    <!-- 🚀 Preload Key Assets (LCP, Fonts, Hero Image) -->
+    <link rel="preload" as="image" href="/src/assets/herobg.webp" />
+    <link rel="preload" as="font" href="/fonts/Poppins-Regular.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="image" href="/cover.webp" />
+
+    <!-- ✅ SEO Meta Tags -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Sanjay Nesan | Full Stack Developer & Designer" />
+    <meta name="description" content="Portfolio of Sanjay Nesan, a full-stack developer and creative designer crafting performant web applications and branding." />
+    <meta name="keywords" content="Sanjay Nesan, Portfolio, Full Stack, React, FastAPI, Developer, Designer, UI/UX, Web Developer" />
+    <meta name="author" content="Sanjay Nesan J" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- 🌍 Open Graph Meta -->
+    <meta property="og:title" content="Sanjay Nesan | Full Stack Developer" />
+    <meta property="og:description" content="Creative full-stack developer building experiences with React, FastAPI, Tailwind, and more." />
+    <meta property="og:image" content="/cover.webp" />
+    <meta property="og:url" content="https://sanjay-nesan-j.web.app/" />
+    <meta property="og:type" content="website" />
+
+    <!-- 🐦 Twitter Card Meta -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sanjay Nesan | Full Stack Developer" />
+    <meta name="twitter:description" content="Creative full-stack developer building fast, functional, and beautiful apps." />
+    <meta name="twitter:image" content="/cover.webp" />
+
+    <!-- 📱 Mobile Chrome Color & iOS -->
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- 🏷️ Title & Favicon -->
     <title>SANJAY NESAN</title>
+    <link rel="icon" href="/logo.png" type="image/png" />
+
+    <!-- 🎨 Font Awesome (optionally self-host) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+    </noscript>
   </head>
+
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- ⚙️ Main JS: Defer loading -->
+    <script type="module" src="/src/main.jsx" defer></script>
   </body>
 </html>

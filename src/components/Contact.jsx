@@ -1,13 +1,15 @@
 import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import {
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-  FaPhone,
-  FaEnvelope,
-} from "react-icons/fa";
+  faLinkedin,
+  faGithub,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import {
+  faPhone,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
@@ -56,23 +58,16 @@ const Contact = () => {
 
   return (
     <div className="relative overflow-hidden text-white py-20 px-4 sm:px-6 bg-black-gradient">
-      {/* 🎯 Optional Floating Blurs (you can remove if not needed) */}
-      <div className="absolute w-72 h-72 bg-[#4c75f2] rounded-full mix-blend-lighten blur-3xl opacity-30 top-20 left-10 animate-[float1_6s_ease-in-out_infinite] z-10" />
-      <div className="absolute w-72 h-72 bg-red-500 rounded-full mix-blend-lighten blur-3xl opacity-20 top-1/2 right-10 animate-[float2_8s_ease-in-out_infinite] z-10" />
-      <div className="absolute w-72 h-72 bg-green-400 rounded-full mix-blend-lighten blur-3xl opacity-20 bottom-10 left-1/2 animate-[float3_7s_ease-in-out_infinite] z-10" />
 
-      {/* 📝 Section Header */}
       <h2 className="relative z-20 text-4xl sm:text-5xl font-extrabold mb-6 text-white text-center">
         Contact
       </h2>
 
-      {/* 💬 Form and Social Section */}
       <div className="relative z-20 flex flex-col lg:flex-row gap-10 max-w-6xl mx-auto bg-white/5 backdrop-blur-xl rounded-2xl p-6 sm:p-10 border border-white/10 shadow-lg">
         {/* 📥 Form */}
-        <motion.form
+        <form
           ref={formRef}
           onSubmit={handleSubmit}
-          variants={slideIn("left", "tween", 0.2, 1)}
           className="flex flex-col gap-5 w-full lg:w-1/2"
         >
           <input
@@ -108,25 +103,22 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
-        </motion.form>
+        </form>
 
         {/* 🌐 Contact Info */}
-        <motion.div
-          variants={slideIn("right", "tween", 0.2, 1)}
-          className="flex flex-col justify-center w-full lg:w-1/2"
-        >
+        <div className="flex flex-col justify-center w-full lg:w-1/2">
           <h3 className="text-2xl font-semibold mb-4 text-white">Get in Touch</h3>
           <a
             href="mailto:sanjaynesan007@gmail.com"
             className="flex items-center gap-2 text-gray-300 mb-2 hover:underline hover:text-blue-400 transition w-fit"
           >
-            <FaEnvelope /> sanjaynesan007@gmail.com
+            <FontAwesomeIcon icon={faEnvelope} /> sanjaynesan007@gmail.com
           </a>
           <a
             href="tel:+919944064709"
             className="flex items-center gap-2 text-gray-300 mb-6 hover:underline hover:text-green-400 transition w-fit"
           >
-            <FaPhone /> +91 99440 64709
+            <FontAwesomeIcon icon={faPhone} /> +91 99440 64709
           </a>
 
           <h4 className="text-2xl font-medium mb-4 text-white">Follow me</h4>
@@ -136,24 +128,24 @@ const Contact = () => {
               target="_blank"
               className="hover:text-[#0077b5] transition"
             >
-              <FaLinkedin />
+              <FontAwesomeIcon icon={faLinkedin} />
             </a>
             <a
               href="https://github.com/sanjaynesan-05"
               target="_blank"
               className="hover:text-white transition"
             >
-              <FaGithub />
+              <FontAwesomeIcon icon={faGithub} />
             </a>
             <a
               href="https://instagram.com/lordsmagan"
               target="_blank"
               className="hover:text-pink-500 transition"
             >
-              <FaInstagram />
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

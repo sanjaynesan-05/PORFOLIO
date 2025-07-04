@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 import "./GridMotion.css";
 
 const GridMotion = ({
@@ -17,35 +16,6 @@ const GridMotion = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-  useEffect(() => {
-    if (isMobile) return;
-
-    const timelines = [];
-
-    rowRefs.current.forEach((row, index) => {
-      if (row) {
-        const direction = index % 2 === 0 ? 1 : -1;
-        const moveDistance = 150;
-        const duration = 6 + index * 1.2;
-
-        const tl = gsap.timeline({
-          repeat: -1,
-          yoyo: true,
-          ease: "power1.inOut",
-        });
-
-        tl.to(row, { x: moveDistance * direction, duration }).to(row, {
-          x: -moveDistance * direction,
-          duration,
-        });
-
-        timelines.push(tl);
-      }
-    });
-
-    return () => timelines.forEach((tl) => tl.kill());
-  }, [isMobile]);
 
   const totalItems = isMobile ? 15 : 28;
   const columns = isMobile ? 5 : 7;
@@ -76,7 +46,9 @@ const GridMotion = ({
             {[...Array(rows)].map((_, rowIndex) => (
               <div
                 key={rowIndex}
-                className="row"
+                className={`row ${
+                  rowIndex % 2 === 0 ? "scroll-left" : "scroll-right"
+                }`}
                 ref={(el) => (rowRefs.current[rowIndex] = el)}
                 style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
               >
@@ -88,13 +60,16 @@ const GridMotion = ({
                     <div key={colIndex} className="row__item">
                       <div className="tile-inner">
                         {typeof content === "string" &&
-                        (content.startsWith("http") || content.includes("/assets/")) ? (
+                        (content.startsWith("http") ||
+                          content.includes("/assets/")) ? (
                           <div
                             className="tile-img"
                             style={{ backgroundImage: `url(${content})` }}
                           />
                         ) : (
-                          <div className="tile-content">{content ?? "•"}</div>
+                          <div className="tile-content">
+                            {content ?? "•"}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -104,7 +79,7 @@ const GridMotion = ({
             ))}
           </div>
         ) : (
-          // ✅ Fixed Mobile Static Grid
+          // Mobile Static Grid
           <div className="mobile-static-grid">
             {displayItems.map((content, i) => (
               <div className="mobile-tile" key={i}>
