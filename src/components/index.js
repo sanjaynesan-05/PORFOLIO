@@ -1,6 +1,3 @@
-// Canvas Components
-import { EarthCanvas, ComputersCanvas, StarsCanvas } from "./canvas";
-
 // Sections
 import Hero from "./Hero";
 import Navbar from "./Navbar";
@@ -23,7 +20,4 @@ export {
   Contact,
   CanvasLoader,
   Designs,
-  EarthCanvas,
-  ComputersCanvas,
-  StarsCanvas,
 };

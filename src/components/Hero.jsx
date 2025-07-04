@@ -6,8 +6,8 @@ import { FaCode, FaPalette, FaRobot, FaBrain, FaRocket } from "react-icons/fa";
 
 import { styles } from "../styles";
 import ProfileCard from "./ProfileCard";
-import myAvatar from "../assets/me.png";
-import logo from "../assets/logo.png";
+import myAvatar from "../assets/me.webp";
+import logo from "../assets/logo.webp";
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState("");

@@ -1,44 +1,44 @@
 // 🌟 Icons & Logos
-import creator from "../assets/creator.png";
-import web from "../assets/web.png";
-import JSN from "../assets/company/JSN.png";
-import Infomedia from "../assets/company/Infomedia.png";
-import nandainfotech from "../assets/company/nandainfotech.png";
-
+import creator from "../assets/creator.webp";
+import web from "../assets/web.webp";
+import JSN from "../assets/company/JSN.webp";
+import Infomedia from "../assets/company/Infomedia.webp";
+import nandainfotech from "../assets/company/nandainfotech.webp";
 
 // 🖼️ Project Images
 import project2 from "../assets/kebaluxe.webp";
 import project3 from "../assets/airquality.webp";
 import gearXpert from "../assets/car_rental.webp";
 import geofence from "../assets/geofence.webp";
+
 // 🛠️ Tech Stack
-import html from "../assets/tech/html.png";
-import css from "../assets/tech/css.png";
-import javascript from "../assets/tech/javascript.png";
-import typescript from "../assets/tech/typescript.png";
-import react from "../assets/tech/reactjs.png";
-import nextjs from "../assets/tech/nextapi.png";
-import fastapi from "../assets/tech/fastapi.png";
-import github from "../assets/tech/github.png";
-import mongodb from "../assets/tech/mongodb.png";
-import mysql from "../assets/tech/mysql.png";
-import firebase from "../assets/tech/firebase.png";
-import nodejs from "../assets/tech/nodejs.png";
-import express from "../assets/tech/express.png";
-import tailwind from "../assets/tech/tailwind.png";
-import materialui from "../assets/tech/mui.png";
-import framer from "../assets/tech/framer.png";
-import threejs from "../assets/tech/threejs.svg";
-import git from "../assets/tech/git.png";
-import figma from "../assets/tech/figma.png";
-import canva from "../assets/tech/canva.png";
-import photoshop from "../assets/tech/photoshop.png";
-import illustrator from "../assets/tech/illustrator.png";
-import tableau from "../assets/tech/tableau.png";
-import python from "../assets/tech/python.png";
-import java from "../assets/tech/java.png";
-import cplus from "../assets/tech/c.png";
-import powerbi from "../assets/tech/powerbi.png";
+import html from "../assets/tech/html.webp";
+import css from "../assets/tech/css.webp";
+import javascript from "../assets/tech/javascript.webp";
+import typescript from "../assets/tech/typescript.webp";
+import react from "../assets/tech/reactjs.webp";
+import nextjs from "../assets/tech/nextapi.webp";
+import fastapi from "../assets/tech/fastapi.webp";
+import github from "../assets/tech/github.webp";
+import mongodb from "../assets/tech/mongodb.webp";
+import mysql from "../assets/tech/mysql.webp";
+import firebase from "../assets/tech/firebase.webp";
+import nodejs from "../assets/tech/nodejs.webp";
+import express from "../assets/tech/express.webp";
+import tailwind from "../assets/tech/tailwind.webp";
+import materialui from "../assets/tech/mui.webp";
+import framer from "../assets/tech/framer.webp";
+import threejs from "../assets/tech/threejs.webp";
+import git from "../assets/tech/git.webp";
+import figma from "../assets/tech/figma.webp";
+import canva from "../assets/tech/canva.webp";
+import photoshop from "../assets/tech/photoshop.webp";
+import illustrator from "../assets/tech/illustrator.webp";
+import tableau from "../assets/tech/tableau.webp";
+import python from "../assets/tech/python.webp";
+import java from "../assets/tech/java.webp";
+import cplus from "../assets/tech/c.webp";
+import powerbi from "../assets/tech/powerbi.webp";
 
 // 🌐 Navigation Links
 export const navLinks = [
@@ -209,5 +209,4 @@ export { default as Tech } from "../components/Tech";
 export { default as Experience } from "../components/Experience";
 export { default as Works } from "../components/Works";
 export { default as Contact } from "../components/Contact";
-export { default as StarsCanvas } from "../components/StarsCanvas";
 export { default as Designs } from "../components/Designs";

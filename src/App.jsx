@@ -10,7 +10,6 @@ import {
   Navbar,
   Tech,
   Works,
-  StarsCanvas,
   Designs,
 } from "./components";
 
@@ -29,7 +28,6 @@ const HomePage = () => (
     <Experience />
     <div className="relative z-0">
       <Contact />
-      <StarsCanvas />
       <Footer />
     </div>
   </>

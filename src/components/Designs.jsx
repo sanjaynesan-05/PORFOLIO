@@ -1,21 +1,22 @@
 import React from "react";
 import GridMotion from "./GridMotion";
 
-// Importing images from assets/designs
-import img1 from "../assets/designs/1.png";
-import img2 from "../assets/designs/2.png";
-import img3 from "../assets/designs/3.png";
-import img4 from "../assets/designs/4.png";
-import img5 from "../assets/designs/5.png";
-import img6 from "../assets/designs/6.png";
-import img7 from "../assets/designs/7.png";
-import img8 from "../assets/designs/8.png";
-import img9 from "../assets/designs/9.png";
-import img10 from "../assets/designs/10.png";
-import img11 from "../assets/designs/11.png";
-import img12 from "../assets/designs/12.png";
-import img13 from "../assets/designs/13.png";
-import img14 from "../assets/designs/14.png";
+// Importing images from assets/designs (.webp format)
+import img1 from "../assets/designs/1.webp";
+import img2 from "../assets/designs/2.webp";
+import img3 from "../assets/designs/3.webp";
+import img4 from "../assets/designs/4.webp";
+import img5 from "../assets/designs/5.webp";
+import img6 from "../assets/designs/6.webp";
+import img7 from "../assets/designs/7.webp";
+import img8 from "../assets/designs/8.webp";
+import img9 from "../assets/designs/9.webp";
+import img10 from "../assets/designs/10.webp";
+import img11 from "../assets/designs/11.webp";
+import img12 from "../assets/designs/12.webp";
+import img13 from "../assets/designs/13.webp";
+import img14 from "../assets/designs/14.webp";
+
 
 
 const Designs = () => {

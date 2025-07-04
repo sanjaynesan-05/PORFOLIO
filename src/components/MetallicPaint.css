@@ -1,9 +1,0 @@
-/* MetallicPaint.css */
-.paint-container {
-  width: 100%;
-  max-width: 400px;
-  height: 400px;
-  display: block;
-  border-radius: 1rem;
-  background: transparent;
-}

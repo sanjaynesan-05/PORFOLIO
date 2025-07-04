@@ -3,7 +3,7 @@ import { Tilt } from "react-tilt";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { styles } from "../styles";
-import { github } from "../assets";
+import { github } from "../assets"; // ✅ Make sure it's a clean SVG/logo file
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 
@@ -12,19 +12,19 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
 
   return (
     <div className="relative w-full group sm:scale-95 transition-transform duration-300">
-      {/* Glow effect on hover */}
-      <div className="absolute inset-0 rounded-[20px] blur-xl opacity-0 group-hover:opacity-100 transition duration-500 z-0 pointer-events-none bg-gradient-to-br from-purple-500 via-indigo-500 to-cyan-500"></div>
+      {/* Glow hover effect */}
+      <div className="absolute inset-0 rounded-[20px] blur-xl opacity-0 group-hover:opacity-100 transition duration-500 z-0 pointer-events-none bg-gradient-to-br from-purple-500 via-indigo-500 to-cyan-500" />
 
       <Tilt
         options={{ max: 35, scale: 1.05, speed: 500 }}
         className="relative z-10 bg-gradient-to-br from-[#1e293b] to-[#334155] shadow-xl rounded-[20px] overflow-hidden transition-transform duration-300 hover:scale-[1.02]"
       >
         <motion.div
-          className="relative w-full h-[240px] sm:h-[300px] md:h-[340px] rounded-[20px] overflow-hidden"
+          className="relative w-full aspect-[16/9] rounded-[20px] overflow-hidden"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          {/* 📸 Project Image */}
+          {/* Project Image */}
           <img
             src={image}
             alt={name}
@@ -32,7 +32,7 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
             loading="lazy"
           />
 
-          {/* 💡 Hover Glass Details */}
+          {/* Glass overlay on hover */}
           <AnimatePresence>
             {hovered && (
               <motion.div
@@ -63,17 +63,14 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
                   ))}
                 </div>
 
-                {/* 🔗 GitHub Button */}
-                <div
+                {/* Premium GitHub Link (No bubble background) */}
+                <img
+                  src={github}
+                  alt="source code"
                   onClick={() => window.open(source_code_link, "_blank")}
-                  className="bg-gradient-to-r from-purple-600 to-indigo-500 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform shadow-lg"
-                >
-                  <img
-                    src={github}
-                    alt="source code"
-                    className="w-5 h-5 object-contain"
-                  />
-                </div>
+                  className="w-6 h-6 sm:w-7 sm:h-7 cursor-pointer opacity-80 hover:opacity-100 transition-opacity duration-200"
+                  title="View Source on GitHub"
+                />
               </motion.div>
             )}
           </AnimatePresence>
@@ -87,9 +84,7 @@ const Works = () => {
   return (
     <section id="work" className="px-4 sm:px-8 md:px-12 lg:px-20 py-10">
       <div>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-          Projects
-        </h2>
+        <h2 className={`${styles.sectionHeadText} text-center`}>Projects</h2>
       </div>
 
       <div className="works-container grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12 justify-center">
