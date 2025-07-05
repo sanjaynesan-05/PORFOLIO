@@ -72,11 +72,6 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/50 z-0" />
 
       <div className="absolute inset-0 top-[160px] max-w-7xl mx-auto px-5 sm:px-10 flex flex-col lg:flex-row items-center justify-center gap-12 z-10">
-        {/* Line Indicator */}
-        <div className="flex-col justify-center items-center hidden md:flex">
-          <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
-        </div>
 
         {/* Profile Card */}
         <div className="relative transform scale-[0.85] md:scale-100 transition-transform duration-300">

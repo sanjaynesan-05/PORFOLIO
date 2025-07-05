@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "./TiltCard.css"; // 👇 you'll define tilt effect here
+import "./TiltCard.css"; // Keep it minimal; override only transforms
 
 const TiltCard = ({ children }) => {
   const cardRef = useRef(null);
@@ -18,20 +18,20 @@ const TiltCard = ({ children }) => {
     const rotateX = ((y - centerY) / centerY) * 10;
     const rotateY = ((x - centerX) / centerX) * -10;
 
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
   };
 
   const resetTilt = () => {
     const card = cardRef.current;
     if (card) {
-      card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
     }
   };
 
   return (
     <div
       ref={cardRef}
-      className="tilt-card"
+      className="tilt-card transition-transform duration-300 ease-in-out will-change-transform"
       onMouseMove={handleMouseMove}
       onMouseLeave={resetTilt}
     >

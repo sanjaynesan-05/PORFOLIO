@@ -1,8 +1,6 @@
+/* TiltCard.css */
+
 .tilt-card {
-  transition: transform 0.2s ease-in-out;
-  will-change: transform;
-  background-color: #1f1f2b; /* optional background */
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  transform-origin: center;
 }
