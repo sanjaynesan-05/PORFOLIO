@@ -5,48 +5,64 @@
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 
-    <!-- 🚀 Preload Key Assets (Fonts, Hero Image, Cover) -->
+    <!-- 🚀 Preload Key Assets -->
     <link rel="preload" as="image" href="/src/assets/herobg.webp" />
     <link rel="preload" as="image" href="/cover.webp" />
-    <link rel="preload" as="font" href="/fonts/Poppins-Regular.woff2" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      as="font"
+      href="/fonts/Poppins-Regular.woff2"
+      type="font/woff2"
+      crossorigin
+    />
 
-    <!-- ✅ SEO Meta Tags -->
+    <!-- ✅ Metadata -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="Sanjay Nesan | Full Stack Developer & Designer" />
-    <meta name="description" content="Portfolio of Sanjay Nesan, a full-stack developer and creative designer crafting performant web applications and branding." />
-    <meta name="keywords" content="Sanjay Nesan, Portfolio, Full Stack, React, FastAPI, Developer, Designer, UI/UX, Web Developer" />
+    <meta
+      name="description"
+      content="Portfolio of Sanjay Nesan, a full-stack developer and creative designer crafting performant web applications and branding."
+    />
+    <meta
+      name="keywords"
+      content="Sanjay Nesan, Portfolio, Full Stack, React, FastAPI, Developer, Designer, UI/UX, Web Developer"
+    />
     <meta name="author" content="Sanjay Nesan J" />
     <meta name="robots" content="index, follow" />
 
-    <!-- 🌍 Open Graph Meta -->
+    <!-- 🌐 Open Graph -->
     <meta property="og:title" content="Sanjay Nesan | Full Stack Developer" />
-    <meta property="og:description" content="Creative full-stack developer building experiences with React, FastAPI, Tailwind, and more." />
+    <meta
+      property="og:description"
+      content="Creative full-stack developer building experiences with React, FastAPI, Tailwind, and more."
+    />
     <meta property="og:image" content="/cover.webp" />
     <meta property="og:url" content="https://sanjay-nesan-j.web.app/" />
     <meta property="og:type" content="website" />
 
-    <!-- 🐦 Twitter Card Meta -->
+    <!-- 🐦 Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Sanjay Nesan | Full Stack Developer" />
-    <meta name="twitter:description" content="Creative full-stack developer building fast, functional, and beautiful apps." />
+    <meta
+      name="twitter:description"
+      content="Creative full-stack developer building fast, functional, and beautiful apps."
+    />
     <meta name="twitter:image" content="/cover.webp" />
 
-    <!-- 📱 Mobile Chrome & PWA -->
+    <!-- 📱 Theme & PWA -->
     <meta name="theme-color" content="#0f172a" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <!-- 🏷️ Title & Favicon -->
+    <!-- 🏷️ Title & Favicons -->
     <title>SANJAY NESAN</title>
-
-    <!-- ✅ Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- 🎨 Font Awesome (on-demand) -->
+    <!-- 🎨 Font Awesome (non-blocking load) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -59,6 +75,8 @@
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
       />
     </noscript>
   </head>
@@ -66,7 +84,7 @@
   <body>
     <div id="root"></div>
 
-    <!-- ⚙️ Main JS Bundle -->
+    <!-- ⚙️ Vite Entry -->
     <script type="module" src="/src/main.jsx" defer></script>
   </body>
 </html>

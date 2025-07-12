@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
-import "./TiltCard.css"; // Keep it minimal; override only transforms
+import "./TiltCard.css";
 
 const TiltCard = ({ children }) => {
-  const cardRef = useRef(null);
+  const tiltRef = useRef(null);
+  const innerRef = useRef(null);
 
   const handleMouseMove = (e) => {
-    const card = cardRef.current;
+    const card = tiltRef.current;
     if (!card) return;
 
     const rect = card.getBoundingClientRect();
@@ -18,24 +19,33 @@ const TiltCard = ({ children }) => {
     const rotateX = ((y - centerY) / centerY) * 10;
     const rotateY = ((x - centerX) / centerX) * -10;
 
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    innerRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
   };
 
   const resetTilt = () => {
-    const card = cardRef.current;
-    if (card) {
-      card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
+    if (innerRef.current) {
+      innerRef.current.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
     }
   };
 
   return (
     <div
-      ref={cardRef}
-      className="tilt-card transition-transform duration-300 ease-in-out will-change-transform"
+      ref={tiltRef}
+      className="tilt-card-wrapper"
       onMouseMove={handleMouseMove}
       onMouseLeave={resetTilt}
+      style={{ perspective: "1000px", pointerEvents: "auto" }}
     >
-      {children}
+      <div
+        ref={innerRef}
+        className="tilt-card-inner transition-transform duration-300 ease-in-out will-change-transform"
+        style={{
+          transformStyle: "preserve-3d",
+          pointerEvents: "auto",
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };

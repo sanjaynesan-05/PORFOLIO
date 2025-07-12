@@ -3,7 +3,7 @@ import { styles } from "../styles";
 import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import TiltCard from "./TiltCard"; // Optional, you can replace with <div>
+import TiltCard from "./TiltCard";
 
 const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
   const [hovered, setHovered] = useState(false);
@@ -17,9 +17,10 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
       {/* 🔹 Subtle Glow Effect */}
       <div className="absolute inset-0 blur-2xl opacity-0 group-hover:opacity-30 bg-cyan-500 pointer-events-none transition duration-500 z-0 rounded-xl" />
 
-      {/* 🖼️ Project Tile */}
+      {/* 🖼️ Project Tile with Tilt */}
       <TiltCard>
-        <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl">
+        <div className="relative w-full aspect-[16/9] overflow-hidden rounded-xl z-0">
+          {/* Background Image */}
           <img
             src={image}
             alt={name}
@@ -27,9 +28,9 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
             loading="lazy"
           />
 
-          {/* 💬 Hover Overlay */}
+          {/* Hover Overlay Content */}
           <div
-            className={`absolute inset-0 bg-black/50 backdrop-blur-sm text-white px-5 py-6 flex flex-col justify-end items-start transition-all duration-500 ease-in-out ${
+            className={`absolute inset-0 z-10 bg-black/50 backdrop-blur-sm text-white px-5 py-6 flex flex-col justify-end items-start transition-all duration-500 ease-in-out ${
               hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -48,14 +49,24 @@ const ProjectCard = ({ name, description, tags, image, source_code_link }) => {
               ))}
             </div>
 
-            {/* GitHub Logo Only (No bg) */}
-            <img
-              src={github}
-              alt="source code"
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="w-6 h-6 sm:w-7 sm:h-7 cursor-pointer opacity-80 hover:opacity-100 transition-opacity duration-200 invert"
-              title="View Source on GitHub"
-            />
+            {/* ✅ GitHub Icon (Click-safe version with z-index) */}
+            {source_code_link ? (
+              <a
+                href={source_code_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="z-20 mt-1"
+                title="View Source on GitHub"
+              >
+                <img
+                  src={github}
+                  alt="source code"
+                  className="z-20 w-6 h-6 sm:w-7 sm:h-7 cursor-pointer opacity-80 hover:opacity-100 transition-opacity duration-200 invert"
+                />
+              </a>
+            ) : (
+              <span className="text-xs text-red-400">No GitHub Link</span>
+            )}
           </div>
         </div>
       </TiltCard>
@@ -68,7 +79,6 @@ const Works = () => {
     <section id="work" className="px-4 sm:px-8 md:px-12 lg:px-20 py-10">
       <h2 className={`${styles.sectionHeadText} text-center`}>Projects</h2>
 
-      {/* ⚙️ Grid Layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 mt-12">
         {projects.map((project, index) => (
           <div key={`project-${index}`} className="w-full">
